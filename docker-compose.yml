@@ -1,0 +1,37 @@
+services:
+  coreservice:
+    build:
+      context: "./coreService/coreapi"
+      dockerfile: ../../docker/coreapi/Dockerfile
+    ports:
+      - 8003:8003
+    env_file:
+      - ./coreService/env/.env.docker
+    depends_on:
+      - chroma
+  textbook:
+    build:
+      context: ./vectorDBMicroservices
+      dockerfile: ../docker/textbook/Dockerfile
+    ports:
+      - 8001:8001
+    env_file:
+      - ./vectorDBMicroservices/env/.env.docker
+    depends_on:
+      - chroma
+  jit:
+    build:
+      context: ./vectorDBMicroservices
+      dockerfile: ../docker/jit/Dockerfile
+    env_file:
+      - ./vectorDBMicroservices/env/.env.docker
+    ports:
+      - 8002:8002
+    depends_on:
+      - chroma
+  chroma:
+    build: ./docker/vectordb_image
+    volumes:
+      - .:/app
+    ports:
+      - 8000:8000

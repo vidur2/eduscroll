@@ -1,0 +1,29 @@
+{
+  "name": "landing-page-next",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint"
+  },
+  "dependencies": {
+    "@clerk/nextjs": "^4.29.1",
+    "@emotion/react": "^11.11.3",
+    "@emotion/styled": "^11.11.0",
+    "@mui/joy": "^5.0.0-beta.20",
+    "@prisma/client": "^4.15.0",
+    "encoding": "^0.1.13",
+    "next": "13.5.5",
+    "react": "^18",
+    "react-dom": "^18",
+    "react-text-gradients": "^1.0.2",
+    "svix": "^1.15.0"
+  },
+  "devDependencies": {
+    "eslint": "^8",
+    "eslint-config-next": "13.5.5",
+    "prisma": "^4.15.0"
+  }
+}

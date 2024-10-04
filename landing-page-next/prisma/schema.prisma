@@ -1,0 +1,27 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = "postgresql://vidurmodgil:060516@localhost:5432/eduscrolldb"
+}
+
+model User {
+  clerkId String @unique @id
+  firstName String?
+  lastName String?
+  emails    String[]
+  chats     Chat[]
+  textbooks String[]
+  subjects  String[]
+}
+
+model Chat {
+  id      String   @id
+  title   String
+  chat    String[]
+  subject String
+  User    User?    @relation(fields: [userId], references: [clerkId])
+  userId  String?
+}
